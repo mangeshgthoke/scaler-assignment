@@ -1,6 +1,30 @@
 package com.mangesht.practice.java.assignment.class59;
 
-public class Solution_Q4 {
+import java.util.List;
+
+public class Solution_Q2 {
+
+    public ListNode reverseList(ListNode A, int B) {
+        ListNode tempHead = A;
+        int start = 1;
+        int end = B;
+        int size = 0;
+
+        while( tempHead != null ) {
+            tempHead = tempHead.next;
+            size++;
+        }
+        int reverseCounter = size/B;
+
+        tempHead = A;
+        while( reverseCounter > 0 ) {
+            A = reverseBetween(A, start, end);
+            start = end + 1;
+            end = end + B;
+            reverseCounter--;
+        }
+        return A;
+    }
     /**
      * Reverse a linked list A from position B to C.
      * NOTE: Do it in-place and in one-pass.
